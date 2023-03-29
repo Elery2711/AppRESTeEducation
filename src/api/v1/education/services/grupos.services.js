@@ -16,6 +16,7 @@ export const getGruposItemOK = async (id) => {
   let GruposItem
   GruposItem = await Grupos.findOne({
     IdGrupoOK: id,});
+    return(GruposItem);
 }
 
   //FIC: GET PRODUCT OR SERVICE BY ID  Busca la info por id y lo busca por tipo de dato
