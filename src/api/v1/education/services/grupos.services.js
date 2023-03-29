@@ -12,6 +12,12 @@ export const getGruposList = async () => {
     }
 };
 
+export const getGruposItemOK = async (id) => {
+  let GruposItem
+  GruposItem = await Grupos.findOne({
+    IdGrupoOK: id,});
+}
+
   //FIC: GET PRODUCT OR SERVICE BY ID  Busca la info por id y lo busca por tipo de dato
 export const getGruposItem = async (id, keyType) => {
     let GruposItem;
@@ -110,6 +116,12 @@ export const putGrupoSubDoc = async (id, paGrupoSubDoc) =>{
   } catch (error) {
   throw boom.badImplementation(error);
   }
+}
+
+export const putGrupoItemOk = async (id, paGrupoItem) => {
+  await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
+    new: true,
+    });
 }
 
 export const putGrupoItem = async (id, paGrupoItem,keyType) => {

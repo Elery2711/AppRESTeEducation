@@ -39,6 +39,25 @@ export const getGruposItem = async (req, res, next) => {
   }
   };
 
+  export const getGruposItemOK = async (req, res, next) => {
+    try {
+      // : obtener parametro id mediante la
+      //desestructuracion de objetos
+      const { id } = req.params;
+      // : se obtiene parametro de la forma
+      //clase/objeto.
+      //const idProdServ = req.params.id;
+    const GruposItem = await GruposServices.getGruposItemOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
 // : API POST.
 //----------------------------------------
 // : API POST (ADD) Producto y/o Servicio.
@@ -54,6 +73,23 @@ export const postGruposItem = async (req, res, next) => {
   } catch (error) {
     console.log(error);
     next(error);
+  }
+};
+
+export const putGrupoItemOK = async (req, res, next) => {
+  try {
+  const { id } = req.params;
+      console.log(' : controller id -> ', id);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.putGrupoItemOk(id, paGrupoItem);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
   }
 };
 

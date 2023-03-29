@@ -10,7 +10,7 @@ GET {{api2}}
 GET {{api2}}/5
 
 ### GET ITEM OK
-GET {{api2}}/5?keyType=OK
+GET {{api2}}/OK?id=5
 
 ### GET ITEM BK
 GET {{api2}}/5A-5?keyType=BK
