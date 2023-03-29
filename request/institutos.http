@@ -2,135 +2,37 @@
 @api2 = http://localhost:3020/api/v1/grupos
 #@api = http://187.229.22.99:8010/api/v1/institutos
 ###Apis de la colecion de grupos
-
+@dato = 5
 ### GET
 GET {{api2}}
 
-### GET ITEM OK (DEFECTO)
-GET {{api2}}/5
+### GET ITEM
+GET {{api2}}/OK5
 
-### GET ITEM OK
-GET {{api2}}/OK?id=5
 
-### GET ITEM BK
-GET {{api2}}/5A-5?keyType=BK
+### GET ITEM
+GET {{api2}}/dato?keyType=OK
 
-### GET ITEM PK
-GET {{api2}}/100?keyType=PK
 
-### GET ITEM PERSONAOK
-GET {{api2}}/44?keyType=PersonaOK
+### GET ITEM
+GET {{api2}}/dato?keyType=BK
 
-### GET ITEM PERIODOOK
-GET {{api2}}/1?keyType=PeriodoOK
-
-### GET ITEM INSTITUTOOK
-GET {{api2}}/40?keyType=InstitutoOK
-
-### GET ITEM CARRERAOK
-GET {{api2}}/1?keyType=CarreraOK
-
-### GET ITEM ASIGNATURAOK
-GET {{api2}}/1?keyType=AsignaturaOK
-
-### GET ITEM GRUPO
-GET {{api2}}/5A?keyType=Grupo
-
-### GET ITEM CURSO
-GET {{api2}}/NORMAL?keyType=Curso
-
-### GET ITEM GRADOACA
-GET {{api2}}/LICENCIATURA?keyType=GradoAca
-
-//GRUPOS POST
-### POST ITEM GRUPOS
+//Education
+### POST ITEM Grupos
 POST {{api2}}
 Content-Type: application/json
 
-{"IdGrupoPK": 4,"IdGrupoOK": "5","IdGrupoBK": "5A-5","IdPeriodoOK": "1","IdInstitutoOK": "1","IdCarreraOK": "1","IdProgramaOK": "1","IdReticulaOK": "1","IdAsignaturaOK": "1","IdPersonaOK": "4","IdRolOK": "3","Grupo": "5A","Capacidad": 25,"IdTipoCursoOK": "208","IdCursoOK": "208-1","Curso": "NORMAL","IdTipoGradoAcaOK": "200","IdGradoAcaOK": "200-1","GradoAca": "LICENCIATURA","IdTipoHorarioOK": "205","IdHorarioOK": "205-2","Horario": "OFICIAL"}
+{"IdGrupoPK": 4,"IdGrupoOK": "5","IdGrupoBK": "5A-4","IdPeriodoOK": "1","IdInstitutoOK": "1","IdCarreraOK": "1","IdProgramaOK": "1","IdReticulaOK": "1","IdAsignaturaOK": "1","IdPersonaOK": "4","IdRolOK": "3","Grupo": "5A","Capacidad": 25,"IdTipoCursoOK": "208","IdCursoOK": "208-1","Curso": "NORMAL","IdTipoGradoAcaOK": "200","IdGradoAcaOK": "200-1","GradoAca": "LICENCIATURA","IdTipoHorarioOK": "205","IdHorarioOK": "205-2","Horario": "OFICIAL"}
 
-//GRUPOS PUSH
-### PUSH SUBDOCUMENTO grupos_estatusPOST 
-PUT  {{api2}}/5?keyType=grupos_estatusPOST
+
+### PUT ITEM Grupos
+PUT {{api2}}/dato
 Content-Type: application/json
 
-{"grupos_estatus": [{"IdTipoEstatusOK": "303","IdEstatusOK": "301-3","Estatus": "NORMAL","Actual": "S",
-"detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "JUASJUAS"}]}}]
-}
+{"IdGrupoPK": 100,"IdGrupoOK": "50","IdGrupoBK": "5A-10","IdPeriodoOK": "4","IdInstitutoOK": "40","IdCarreraOK": "4","IdProgramaOK": "4","IdReticulaOK": "4","IdAsignaturaOK": "4","IdPersonaOK": "44","IdRolOK": "34","Grupo": "5B","Capacidad": 50,"IdTipoCursoOK": "2080","IdCursoOK": "2080-1","Curso": "NORMAL","IdTipoGradoAcaOK": "2000","IdGradoAcaOK": "200-5","GradoAca": "INGENIERIA","IdTipoHorarioOK": "2050","IdHorarioOK": "205-2","Horario": "OFICIAL"}
 
-//GRUPOS PUSH
-### PUSH SUBDOCUMENTO grupos_horariosPOST 
-PUT {{api2}}/5?keyType=grupos_horariosPOST
-Content-Type: application/json
-
-{"grupos_horarios": [{"IdDiaOK": "1","IdDiaBK": "LA1-5A-LUN","Dia": "LUNES","Alias": "Monday","HoraEntrada": "19:00","HoraSalida": "20:00","ToleranciaEntrada": 5,"ToleranciaSalida": 5,"IdEdificioOK": "1","IdEspacioOK": "1",
-    "detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Grax"}]}}]}
-
-### PUSH SUBDOCUMENTO grupos_personasPOST 
-PUT {{api2}}/5?keyType=grupos_personasPOST
-Content-Type: application/json
-
-{"grupos_personas":[{"IdPersonaOK": "1","IdRolOK": "2","NumPeriodo": "1","Repite": "N","detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Grax"}]}}]}
-
-### PUT SUBDOCUMENTO TipoEstatusOK 
-PUT {{api2}}/5?keyType=TipoEstatusOK
-Content-Type: application/json
-
-{"grupos_estatus": [{"IdTipoEstatusOK": "303","IdEstatusOK": "301-3","Estatus": "OFICIAL","Actual": "S",
-"detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Ei you"}]}}],
-  "grupos_horarios": [{"IdDiaOK": "1","IdDiaBK": "LA1-5A-LUN","Dia": "LUNES","Alias": "Monday","HoraEntrada": "19:00","HoraSalida": "20:00","ToleranciaEntrada": 5,"ToleranciaSalida": 5,"IdEdificioOK": "1","IdEspacioOK": "1",
-      "detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Grax"}]}}],
-    "grupos_personas":[{"IdPersonaOK": "1","IdRolOK": "2","NumPeriodo": "1","Repite": "N","detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Grax"}]}}],
-    "detail_row": {"Activo": "S","Borrado": "N","detail_row_reg": [{"UsuarioReg": "Hola"}]}
-}
-
-### PUT ITEM IDGRUPO OK
-PUT {{api2}}/5
-Content-Type: application/json
-
-{"IdGrupoPK": 400,"IdGrupoOK": "25","IdGrupoBK": "5D-10","IdPeriodoOK": "4","IdInstitutoOK": "40","IdCarreraOK": "4","IdProgramaOK": "4","IdReticulaOK": "4","IdAsignaturaOK": "4","IdPersonaOK": "44","IdRolOK": "34","Grupo": "5B","Capacidad": 50,"IdTipoCursoOK": "2080","IdCursoOK": "2080-1","Curso": "ESPECIAL","IdTipoGradoAcaOK": "2000","IdGradoAcaOK": "200-5","GradoAca": "INGENIERIA","IdTipoHorarioOK": "2050","IdHorarioOK": "205-2","Horario": "OFICIAL"}
-
-### PUT ITEM IDGRUPOBK
-PUT {{api2}}/5A-5?keyType=BK
-Content-Type: application/json
-
-{"IdGrupoPK": 300,"IdGrupoOK": "70","IdGrupoBK": "5C-10","IdPeriodoOK": "4","IdInstitutoOK": "40","IdCarreraOK": "4","IdProgramaOK": "4","IdReticulaOK": "4","IdAsignaturaOK": "4","IdPersonaOK": "44","IdRolOK": "34","Grupo": "5B","Capacidad": 50,"IdTipoCursoOK": "2080","IdCursoOK": "2080-1","Curso": "ESPECIAL","IdTipoGradoAcaOK": "2000","IdGradoAcaOK": "200-5","GradoAca": "INGENIERIA","IdTipoHorarioOK": "2050","IdHorarioOK": "205-2","Horario": "OFICIAL"}
-
-### PUT ITEM IDGRUPOPK
-PUT {{api2}}/4?keyType=PK
-Content-Type: application/json
-
-{"IdGrupoPK": 200,"IdGrupoOK": "20","IdGrupoBK": "5B-10","IdPeriodoOK": "4","IdInstitutoOK": "40","IdCarreraOK": "4","IdProgramaOK": "4","IdReticulaOK": "4","IdAsignaturaOK": "4","IdPersonaOK": "44","IdRolOK": "34","Grupo": "5B","Capacidad": 50,"IdTipoCursoOK": "2080","IdCursoOK": "2080-1","Curso": "ESPECIAL","IdTipoGradoAcaOK": "2000","IdGradoAcaOK": "200-5","GradoAca": "INGENIERIA","IdTipoHorarioOK": "2050","IdHorarioOK": "205-2","Horario": "OFICIAL"}
-
-### PUT ITEM IDGRUPOOK
-PUT {{api2}}/20?keyType=OK
-Content-Type: application/json
-
-{"IdGrupoPK": 400,"IdGrupoOK": "25","IdGrupoBK": "5D-10","IdPeriodoOK": "4","IdInstitutoOK": "40","IdCarreraOK": "4","IdProgramaOK": "4","IdReticulaOK": "4","IdAsignaturaOK": "4","IdPersonaOK": "44","IdRolOK": "34","Grupo": "5B","Capacidad": 50,"IdTipoCursoOK": "2080","IdCursoOK": "2080-1","Curso": "ESPECIAL","IdTipoGradoAcaOK": "2000","IdGradoAcaOK": "200-5","GradoAca": "INGENIERIA","IdTipoHorarioOK": "2050","IdHorarioOK": "205-2","Horario": "OFICIAL"}
-
-
-### DELETE ITEM IDGRUPOOK
-DELETE  {{api2}}/5
-
-### DELETE ITEM IDGRUPOPK
-DELETE  {{api2}}/400?keyType=PK
-
-### DELETE ITEM IDGRUPOBK
-DELETE  {{api2}}/5A-5?keyType=BK
-
-### DELETE ITEM IDGRUPOOK
-DELETE  {{api2}}/5?keyType=OK
-
-
-
-
-
-
-
-
-
-
-
+### DELETE ITEM Grupos
+DELETE  {{api2}}/dato
 
 
 ###Apis de la coleccioin de cat_institutos
@@ -138,13 +40,15 @@ DELETE  {{api2}}/5?keyType=OK
 GET {{api}}
 
 ### GET ITEM
-GET {{api}}/4
+GET {{api}}/dato
+
 
 ### GET ITEM
-GET {{api}}/4?keyType=OK
+GET {{api}}/dato?keyType=OK
+
 
 ### GET ITEM
-GET {{api}}/XXXXXX?keyType=BK
+GET {{api}}/dato?keyType=BK
 
 //Education
 ### POST ITEM INSTITUTO
@@ -154,13 +58,13 @@ Content-Type: application/json
 {"IdInstitutoOK": "4","IdInstitutoBK": "18DIT0005Z","DesInstituto": "Instituto Tecnológico de Tepic","Alias": "N","Matriz": "Educacion","Giro": "ITT","IdInstitutoSupOK": "1"}
 
 ### PUT ITEM INSTITUTO
-PUT {{api}}/4
+PUT {{api}}/dato
 Content-Type: application/json
 
     {"IdInstitutoOK" : "4","IdInstitutoBK" : "XXXXXX","DesInstituto" : "Instituto Tecnológico de XXXXX","Matriz" : "X","Giro" : "EducacionXXX","Alias" : "ITTXXX","IdInstitutoSupOK" : "1"}
 
 ### DELETE ITEM INSTITUTO
-DELETE  {{api}}/4
+DELETE  {{api}}/dato
 
 
 
