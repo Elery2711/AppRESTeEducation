@@ -14,67 +14,124 @@ export const getGruposList = async () => {
 
 export const getGruposItemOK = async (id) => {
   let GruposItem
+  try{
   GruposItem = await Grupos.findOne({
     IdGrupoOK: id,});
     return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
 }
 
-  //FIC: GET PRODUCT OR SERVICE BY ID  Busca la info por id y lo busca por tipo de dato
-export const getGruposItem = async (id, keyType) => {
-    let GruposItem;
-   
-    try {
-      if (keyType === 'OK') {
-        GruposItem = await Grupos.findOne({
-          IdGrupoOK: id,
-        });
-      } else if (keyType === 'BK') {
-        GruposItem = await Grupos.findOne({
-            IdGrupoBK: id,
-        });
-      } else if (keyType === 'PK') {
-        GruposItem = await Grupos.findOne({
-            IdGrupoPK: id,
-        });
-      } else if (keyType === 'PersonaOK') {
-        GruposItem = await Grupos.findOne({
-          IdPersonaOK: id,
-        });
-      } else if (keyType === 'PeriodoOK') {
-        GruposItem = await Grupos.findOne({
-          IdPeriodoOK: id,
-        });
-      } else if (keyType === 'InstitutoOK') {
-        GruposItem = await Grupos.findOne({
-          IdInstitutoOK: id,
-        });
-      } else if (keyType === 'CarreraOK') {
-        GruposItem = await Grupos.findOne({
-          IdCarreraOK: id,
-        });
-      } else if (keyType === 'AsignaturaOK') {
-        GruposItem = await Grupos.findOne({
-          IdAsignaturaOK: id,
-        });
-      } else if (keyType === 'Grupo') {
-        GruposItem = await Grupos.findOne({
-          Grupo: id,
-        });
-      } else if (keyType === 'Curso') {
-        GruposItem = await Grupos.findOne({
-          Curso: id,
-        });
-      } else if (keyType === 'GradoAca') {
-        GruposItem = await Grupos.findOne({
-          GradoAca: id,
-        });
-      }
-      return(GruposItem);
-    } catch (error) {
-      throw boom.internal(error);
-    }
-};
-  
+export const getGruposItemBK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdGrupoBK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemPK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdGrupoPK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemPersonaOK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdPersonaOK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemPeriodoOK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdPeriodoOK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemInstitutoOK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    InstitutoOK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemCarreraOK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdCarreraOK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemAsignaturaOK = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    IdAsignaturaOK: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemGrupo = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    Grupo: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemCurso = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    Curso: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}
+
+export const getGruposItemGradoAca = async (id) => {
+  let GruposItem
+  try{
+  GruposItem = await Grupos.findOne({
+    GradoAca: id,});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.internal(error);
+  }
+}  
 
   //Education
 //FIC: POST (ADD) Grupo.
@@ -125,23 +182,49 @@ export const putGrupoItemOk = async (id, paGrupoItem) => {
     });
 }
 
+//---------------------API's PUT-----------------------
+
+export const putGrupoItemOK = async (id, paGrupoItem) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
+      new: true,
+      });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
+export const putGrupoItemBK = async (id, paGrupoItem) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoBK: id }, paGrupoItem, {
+      new: true,
+      });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
+export const putGrupoItemPK = async (id, paGrupoItem) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoPK: id }, paGrupoItem, {
+      new: true,
+      });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
 export const putGrupoItem = async (id, paGrupoItem,keyType) => {
   let GruposItem;
   try {
     //console.log(": PUT API Grupo", id);
-    if(keyType === 'OK') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
-          new: true,
-          });
-      } else if (keyType === 'BK') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoBK: id }, paGrupoItem, {
-          new: true,
-          });
-      }else if (keyType === 'PK') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoPK: id }, paGrupoItem, {
-          new: true,
-          });
-      }else if (keyType === 'TipoEstatusOK') {
+      if (keyType === 'TipoEstatusOK') {//TE QUEDASTE AQUI <------------------------------------------
         GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
           new: true,
           });
