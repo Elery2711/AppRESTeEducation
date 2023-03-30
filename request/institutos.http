@@ -7,7 +7,7 @@
 GET {{api2}}
 
 ### GET ITEM
-GET {{api2}}/OK5
+GET {{api2}}/PERIODOOK/4
 
 
 ### GET ITEM
