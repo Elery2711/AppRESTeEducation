@@ -58,6 +58,146 @@ export const getGruposItem = async (req, res, next) => {
   }
   };
 
+  export const getGruposItemBK = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemBK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemPK = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemPK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemPersonaOK = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemPersonaOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemPeriodoOK = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemPeriodoOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemInstitutoOK= async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemInstitutoOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemCarreraOK= async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemCarreraOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemAsignaturaOK = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemAsignaturaOK(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemGrupo = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemGrupo(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemCurso = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemCurso(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
+  export const getGruposItemGradoAca = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+    const GruposItem = await GruposServices.getGruposItemGradoAca(id);
+    if (!GruposItem) {
+      throw boom.notFound('No se encontraron grupos registrados.');
+    } else if (GruposItem) {
+      res.status(200).json(GruposItem);
+    }
+  }catch(error){
+    next(error);
+  }
+  };
+
 // : API POST.
 //----------------------------------------
 // : API POST (ADD) Producto y/o Servicio.
