@@ -19,6 +19,9 @@ router.get(`/AsignaturaOK/:id`, GruposController.getGruposItemAsignaturaOK);
 router.get(`/Grupo/:id`, GruposController.getGruposItemGrupo);
 router.get(`/Curso/:id`, GruposController.getGruposItemCurso);
 router.get(`/GradoAca/:id`, GruposController.getGruposItemGradoAca);
+////////////////////////////////////////////////////////////
+//POST ROUTES
+router.post(`/POST/GRUPOESTATUS/:id`, GruposController.postGruposEstatus);
 
 ////////////////////////////////////////////////////////////
 router.get(`/:id`, GruposController.getGruposItem);

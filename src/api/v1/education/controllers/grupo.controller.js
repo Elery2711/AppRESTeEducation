@@ -216,6 +216,23 @@ export const postGruposItem = async (req, res, next) => {
   }
 };
 
+export const postGruposEstatus = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const paGrupoItem = req.body;
+    const newGrupoItem = await GruposServices.postGruposEstatus(paGrupoItem, id);
+    if (!newGrupoItem) {
+      throw boom.badRequest('No se pudo crear el Producto y/o Servicio.');
+    } else if (newGrupoItem) {
+      res.status(201).json(newGrupoItem);
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+//------------------PUT----------------
 export const putGrupoItemOK = async (req, res, next) => {
   try {
   const { id } = req.params;

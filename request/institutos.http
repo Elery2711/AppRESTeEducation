@@ -7,7 +7,7 @@
 GET {{api2}}
 
 ### GET ITEM
-GET {{api2}}/PERIODOOK/4
+GET {{api2}}/OK/5
 
 
 ### GET ITEM
@@ -24,6 +24,23 @@ Content-Type: application/json
 
 {"IdGrupoPK": 4,"IdGrupoOK": "5","IdGrupoBK": "5A-4","IdPeriodoOK": "1","IdInstitutoOK": "1","IdCarreraOK": "1","IdProgramaOK": "1","IdReticulaOK": "1","IdAsignaturaOK": "1","IdPersonaOK": "4","IdRolOK": "3","Grupo": "5A","Capacidad": 25,"IdTipoCursoOK": "208","IdCursoOK": "208-1","Curso": "NORMAL","IdTipoGradoAcaOK": "200","IdGradoAcaOK": "200-1","GradoAca": "LICENCIATURA","IdTipoHorarioOK": "205","IdHorarioOK": "205-2","Horario": "OFICIAL"}
 
+### POST ITEM grupos_estatus
+POST {{api2}}/POST/GRUPOESTATUS/5
+Content-Type: application/json
+
+{
+	"IdTipoEstatusOK": "1",
+	"IdEstatusOK": "1",
+	"Estatus": "1",
+	"Actual": "1",
+	"detail_row": {
+		"Activo": "1",
+		"Borrado": "0",
+		"detail_row_reg": [{
+			"UsuarioReg": "RAMIREZ REA EDGAR RUBEN"
+		}]
+	}
+}
 
 ### PUT ITEM Grupos
 PUT {{api2}}/dato

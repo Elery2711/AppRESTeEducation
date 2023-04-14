@@ -142,8 +142,45 @@ export const postGrupoItem = async (paGrupoItem) => {
       } catch (error) {
         throw error;
       }
-}
+};
 
+export const postGruposEstatus = async (paGrupoItem, id) => {
+  let GruposItem
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+      {$push:{"grupos_estatus": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
+export const putGrupoItem = async (id, paGrupoItem,keyType) => {
+  let GruposItem;
+  try {
+    //console.log(": PUT API Grupo", id);
+      if (keyType === 'grupos_estatusPOST') {
+        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+          {$push:{"grupos_estatus": paGrupoItem}},
+          {new: true});
+      }else if (keyType === 'grupos_horariosPOST') {
+        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+          {$push:{"grupos_horarios": paGrupoItem}},
+          {new: true});
+      }else if (keyType === 'grupos_personasPOST') {
+        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+          {$push:{"grupos_personas": paGrupoItem}},
+          {new: true});
+      }else if (keyType === 'detail_rowPOST') {
+        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+          {$push:{"detail_row": paGrupoItem}},
+          {new: true});
+      }
+  return(GruposItem);
+  } catch (error) {
+  throw boom.badImplementation(error);
+  }
+};
 
 //: SERVICES PUT
 // PUT (MODIFY) Grupos
@@ -162,26 +199,6 @@ export const putGrupo = async (id, paGrupoItem) => {
 
 //: SERVICES PUT
 // PUT (MODIFY) Grupos
-export const putGrupoSubDoc = async (id, paGrupoSubDoc) =>{
-  let GrupoSubDoc
-
-  try {
-    //console.log("FIC: PUT API INSTITUTO", id);
-    GrupoSubDoc = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, {$set :{ paGrupoSubDoc}}, {
-    new: true,
-  });
-  return (GrupoSubDoc)
-  } catch (error) {
-  throw boom.badImplementation(error);
-  }
-}
-
-export const putGrupoItemOk = async (id, paGrupoItem) => {
-  await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
-    new: true,
-    });
-}
-
 //---------------------API's PUT-----------------------
 
 export const putGrupoItemOK = async (id, paGrupoItem) => {
@@ -220,35 +237,30 @@ export const putGrupoItemPK = async (id, paGrupoItem) => {
     }
 };
 
-export const putGrupoItem = async (id, paGrupoItem,keyType) => {
+export const putTipoEstatusOK = async (id, paGrupoItem) => {
   let GruposItem;
   try {
-    //console.log(": PUT API Grupo", id);
-      if (keyType === 'TipoEstatusOK') {//TE QUEDASTE AQUI <------------------------------------------
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, paGrupoItem, {
-          new: true,
-          });
-      }else if (keyType === 'grupos_estatusPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_estatus": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'grupos_horariosPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_horarios": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'grupos_personasPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_personas": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'detail_rowPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"detail_row": paGrupoItem}},
-          {new: true});
-      }
-  return(GruposItem);
+    GruposItem = await Grupos.findOneAndUpdate({ "grupos_estatus.IdTipoEstatusOK": id }, 
+    {$set: paGrupoItem}, {
+      new: true,
+      });
+    return(GruposItem);
   } catch (error) {
-  throw boom.badImplementation(error);
-  }
+    throw boom.badImplementation(error);
+    }
+};
+
+export const putEstatus = async (id, paGrupoItem) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ "grupos_estatus.IdTipoEstatusOK": id }, 
+    {$set: paGrupoItem}, {
+      new: true,
+      });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
 };
 
 export const deleteGrupo = async (id) => {
