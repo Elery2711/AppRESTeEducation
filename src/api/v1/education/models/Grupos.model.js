@@ -25,15 +25,18 @@ const gruposSchema  = new mongoose.Schema({
     Horario: {type : String, required : false},
     grupos_estatus: [
         {
+          _id:false,
           IdTipoEstatusOK: {type : String, required : false},
           IdEstatusOK: {type : String, required : false},
           Estatus: {type : String, required : false},
           Actual: {type : String, required : false},
           detail_row: {
+            _id:false,
             Activo: {type : String, required : false},
             Borrado: {type : String, required : false},
             detail_row_reg: [
               {
+                _id:false,
                 FechaReg: {type : Date, required : false,default:Date.now()},
                 UsuarioReg: {type : String, required : false}
               }
