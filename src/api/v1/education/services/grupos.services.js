@@ -144,17 +144,6 @@ export const postGrupoItem = async (paGrupoItem) => {
       }
 };
 
-export const postGruposEstatus = async (paGrupoItem, id) => {
-  let GruposItem
-  try {
-    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-      {$push:{"grupos_estatus": [paGrupoItem]}});
-    return(GruposItem);
-  } catch (error) {
-    throw boom.badImplementation(error);
-    }
-};
-
 export const putGrupoItem = async (id, paGrupoItem,keyType) => {
   let GruposItem;
   try {
@@ -300,5 +289,102 @@ export const deleteGrupoItem = async (id,keyType) => {
     }
 };
 
+export const postGruposEstatus = async (paGrupoItem, id) => {
+  let GruposItem
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+      {$push:{"grupos_estatus": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
 
+export const setGruposEstatus = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdEstatusOK" : id2 }, 
+      {$set:{"grupos_estatus.$": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
+
+export const pullGruposEstatus = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdEstatusOK" : id2 }, 
+    { $pull: { "grupos_estatus": { IdEstatusOK: id2 } } });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
+
+export const postGruposHorario = async (paGrupoItem, id) => {
+  let GruposItem
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+      {$push:{"grupos_horarios": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
+export const setGruposHorario = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_horarios.HoraEntrada" : id2 }, 
+      {$set:{"grupos_horarios.$": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
+
+export const pullGruposHorario = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_horarios.HoraEntrada" : id2 }, 
+    { $pull: { "grupos_horarios": { HoraEntrada: id2 } } });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
+
+export const postGruposPersonas = async (paGrupoItem, id) => {
+  let GruposItem
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
+      {$push:{"grupos_personas": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+    }
+};
+
+export const setGruposPersonas = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_personas.IdPersonaOK" : id2 }, 
+      {$set:{"grupos_personas.$": [paGrupoItem]}});
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
+
+export const pullGruposPersonas = async (paGrupoItem, id1,id2) => {
+  let GruposItem;
+  try {
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_personas.IdPersonaOK" : id2 }, 
+    { $pull: { "grupos_personas": { IdPersonaOK: id2 } } });
+    return(GruposItem);
+  } catch (error) {
+    throw boom.badImplementation(error);
+  }
+};
 

@@ -216,22 +216,6 @@ export const postGruposItem = async (req, res, next) => {
   }
 };
 
-export const postGruposEstatus = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const paGrupoItem = req.body;
-    const newGrupoItem = await GruposServices.postGruposEstatus(paGrupoItem, id);
-    if (!newGrupoItem) {
-      throw boom.badRequest('No se pudo crear el Producto y/o Servicio.');
-    } else if (newGrupoItem) {
-      res.status(201).json(newGrupoItem);
-    }
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
-};
-
 //------------------PUT----------------
 export const putGrupoItemOK = async (req, res, next) => {
   try {
@@ -334,4 +318,160 @@ export const deleteGrupo = async (req, res, next) => {
     }catch(error){
       next(error);
     }
+};
+
+export const postGruposEstatus = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const paGrupoItem = req.body;
+    const newGrupoItem = await GruposServices.postGruposEstatus(paGrupoItem, id);
+    if (!newGrupoItem) {
+      throw boom.badRequest('No se pudo crear el Producto y/o Servicio.');
+    } else if (newGrupoItem) {
+      res.status(201).json(newGrupoItem);
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+export const postGruposHorario = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const paGrupoItem = req.body;
+    const newGrupoItem = await GruposServices.postGruposHorario(paGrupoItem, id);
+    if (!newGrupoItem) {
+      throw boom.badRequest('No se pudo crear el Producto y/o Servicio.');
+    } else if (newGrupoItem) {
+      res.status(201).json(newGrupoItem);
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+export const postGruposPersonas = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const paGrupoItem = req.body;
+    const newGrupoItem = await GruposServices.postGruposPersonas(paGrupoItem, id);
+    if (!newGrupoItem) {
+      throw boom.badRequest('No se pudo crear el Producto y/o Servicio.');
+    } else if (newGrupoItem) {
+      res.status(201).json(newGrupoItem);
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+export const setGruposEstatus = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.setGruposEstatus(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
+};
+
+export const setGruposHorario = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.setGruposHorario(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
+};
+
+export const setGruposPersonas = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.setGruposPersonas(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
+};
+
+export const pullGruposEstatus = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.pullGruposEstatus(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
+};
+
+export const pullGruposHorario = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.pullGruposHorario(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
+};
+
+export const pullGruposPersonas = async (req, res, next) => {
+  try {
+    const { id1,id2 } = req.params;
+      console.log(' : controller id -> ', id1);
+      console.log(' : controller id -> ', id2);
+  const paGrupoItem = req.body;
+      console.log(' : controller body -> ', paGrupoItem);
+  const updatedGrupoItem = await GruposServices.pullGruposPersonas(paGrupoItem, id1,id2);
+  if (!updatedGrupoItem) {
+  throw boom.badRequest('No se pudo actualizar el Grupo.');
+  } else if (updatedGrupoItem) {
+  res.status(200).json(updatedGrupoItem);
+  }
+  } catch (error) {
+  next(error);
+  }
 };

@@ -22,7 +22,21 @@ router.get(`/GradoAca/:id`, GruposController.getGruposItemGradoAca);
 ////////////////////////////////////////////////////////////
 //POST ROUTES
 router.post(`/POST/GRUPOESTATUS/:id`, GruposController.postGruposEstatus);
-
+//SUBDOCUMENTOS ROUTES
+//////////////////////////////////////////////
+//GRUPOS ESTATUS
+router.post(`/POST/GRUPOESTATUS/:id`, GruposController.postGruposEstatus);
+router.put(`/PUT/GRUPOESTATUS/:id1/:id2`, GruposController.setGruposEstatus);
+router.delete(`/DELETE/GRUPOESTATUS/:id1/:id2`, GruposController.pullGruposEstatus);
+//GRUPOS HORARIOS
+router.post(`/POST/GRUPOHORARIO/:id`, GruposController.postGruposHorario);
+router.put(`/PUT/GRUPOHORARIO/:id1/:id2`, GruposController.setGruposHorario);
+router.delete(`/DELETE/GRUPOHORARIO/:id1/:id2`, GruposController.pullGruposHorario);
+//GRUPOS PERSONAS
+router.post(`/POST/GRUPOPERSONAS/:id`, GruposController.postGruposPersonas);
+router.put(`/PUT/GRUPOPERSONAS/:id1/:id2`, GruposController.setGruposPersonas);
+router.delete(`/DELETE/GRUPOPERSONAS/:id1/:id2`, GruposController.pullGruposPersonas);
+////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 router.get(`/:id`, GruposController.getGruposItem);
 router.post('/', GruposController.postGruposItem);

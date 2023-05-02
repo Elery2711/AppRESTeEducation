@@ -83,5 +83,136 @@ Content-Type: application/json
 ### DELETE ITEM INSTITUTO
 DELETE  {{api}}/dato
 
+### POST ITEM grupos_estatus
+POST {{api2}}/POST/GRUPOESTATUS/5
+Content-Type: application/json
+
+{
+	"IdTipoEstatusOK": "1",
+	"IdEstatusOK": "90",
+	"Estatus": "1",
+	"Actual": "1",
+	"detail_row": {
+		"Activo": "1",
+		"Borrado": "0",
+		"detail_row_reg": [{
+			"UsuarioReg": "RAMIREZ REA EDGAR RUBEN"
+		}]
+	}
+}
+
+### PUT ITEM grupos_estatus
+PUT {{api2}}/PUT/GRUPOESTATUS/5/90
+Content-Type: application/json
+
+{
+	"IdTipoEstatusOK": "2",
+	"IdEstatusOK": "7",
+	"Estatus": "4",
+	"Actual": "5",
+	"detail_row": {
+		"Activo": "0",
+		"Borrado": "1",
+		"detail_row_reg": [{
+			"UsuarioReg": "Urabe Mikoto"
+		}]
+	}
+}
+
+### DELETE ITEM grupos_estatus
+DELETE  {{api2}}/DELETE/GRUPOESTATUS/5/80
+
+
+
+### POST ITEM grupos_horarios
+POST {{api2}}/POST/GRUPOHORARIO/5
+Content-Type: application/json
+
+{
+    "IdDiaOK": "1",
+    "IdDiaBK": "LA1-5A-LUN",
+    "Dia": "LUNES",
+    "Alias": "Monday",
+    "HoraEntrada": "19:00",
+    "HoraSalida": "20:00",
+    "ToleranciaEntrada": 5,
+    "ToleranciaSalida": 5,
+    "IdEdificioOK": "1",
+    "IdEspacioOK": "1",
+    "detail_row": {
+      "Activo": "S",
+      "Borrado": "N",
+      "detail_row_reg": [{
+        "UsuarioReg": "ERICK RAMIREZ REA 1"
+    	}]
+  }
+}
+
+### PUT ITEM grupos_horarios
+PUT {{api2}}/PUT/GRUPOHORARIO/5/19:00
+Content-Type: application/json
+
+{
+    "IdDiaOK": "1",
+    "IdDiaBK": "LA1-5A-LUN",
+    "Dia": "LUNES",
+    "Alias": "Monday",
+    "HoraEntrada": "18:00",
+    "HoraSalida": "20:00",
+    "ToleranciaEntrada": 5,
+    "ToleranciaSalida": 5,
+    "IdEdificioOK": "1",
+    "IdEspacioOK": "1",
+    "detail_row": {
+      "Activo": "S",
+      "Borrado": "N",
+      "detail_row_reg": [{
+        "UsuarioReg": "ERICK RAMIREZ REA 2"
+    	}]
+  }
+}
+
+### DELETE ITEM grupos_horarios
+DELETE  {{api2}}/DELETE/GRUPOHORARIO/5/18:00
+
+### POST ITEM grupos_personas
+POST {{api2}}/POST/GRUPOPERSONAS/5
+Content-Type: application/json
+
+{
+    "IdPersonaOK": "1",
+    "IdRolOK": "2",
+    "NumPeriodo": "1",
+    "Repite": "N",
+    "detail_row": {
+      "Activo": "S",
+      "Borrado": "N",
+      "detail_row_reg": [{
+          "UsuarioReg": "Erick Ramirez Rea"
+        }]
+    }
+}
+
+### PUT ITEM grupos_personas
+PUT {{api2}}/PUT/GRUPOPERSONAS/5/1
+Content-Type: application/json
+
+{
+    "IdPersonaOK": "2",
+    "IdRolOK": "2",
+    "NumPeriodo": "1",
+    "Repite": "N",
+    "detail_row": {
+      "Activo": "S",
+      "Borrado": "N",
+      "detail_row_reg": [{
+          "UsuarioReg": "Juan Antonio Graxiola Quiroz"
+        }]
+    }
+}
+
+### DELETE ITEM grupos_personas
+DELETE  {{api2}}/DELETE/GRUPOPERSONAS/5/2
+
 
 
