@@ -144,33 +144,6 @@ export const postGrupoItem = async (paGrupoItem) => {
       }
 };
 
-export const putGrupoItem = async (id, paGrupoItem,keyType) => {
-  let GruposItem;
-  try {
-    //console.log(": PUT API Grupo", id);
-      if (keyType === 'grupos_estatusPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_estatus": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'grupos_horariosPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_horarios": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'grupos_personasPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"grupos_personas": paGrupoItem}},
-          {new: true});
-      }else if (keyType === 'detail_rowPOST') {
-        GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id }, 
-          {$push:{"detail_row": paGrupoItem}},
-          {new: true});
-      }
-  return(GruposItem);
-  } catch (error) {
-  throw boom.badImplementation(error);
-  }
-};
-
 //: SERVICES PUT
 // PUT (MODIFY) Grupos
 export const putGrupo = async (id, paGrupoItem) => {
@@ -298,7 +271,7 @@ export const postGruposEstatus = async (paGrupoItem, id) => {
 export const setGruposEstatus = async (paGrupoItem, id1,id2) => {
   let GruposItem;
   try {
-    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdEstatusOK" : id2 }, 
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdTipoEstatusOK" : id2 }, 
       {$set:{"grupos_estatus.$": [paGrupoItem]}});
     return(GruposItem);
   } catch (error) {
@@ -309,8 +282,8 @@ export const setGruposEstatus = async (paGrupoItem, id1,id2) => {
 export const pullGruposEstatus = async (paGrupoItem, id1,id2) => {
   let GruposItem;
   try {
-    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdEstatusOK" : id2 }, 
-    { $pull: { "grupos_estatus": { IdEstatusOK: id2 } } });
+    GruposItem = await Grupos.findOneAndUpdate({ IdGrupoOK: id1 , "grupos_estatus.IdTipoEstatusOK" : id2 }, 
+    { $pull: { "grupos_estatus": { IdTipoEstatusOK: id2 } } });
     return(GruposItem);
   } catch (error) {
     throw boom.badImplementation(error);

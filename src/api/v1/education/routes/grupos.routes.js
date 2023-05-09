@@ -38,10 +38,8 @@ router.put(`/PUT/GRUPOPERSONAS/:id1/:id2`, GruposController.setGruposPersonas);
 router.delete(`/DELETE/GRUPOPERSONAS/:id1/:id2`, GruposController.pullGruposPersonas);
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
-router.get(`/:id`, GruposController.getGruposItem);
 router.post('/', GruposController.postGruposItem);
 router.put('/:id', GruposController.putGrupoItem);
-router.put('/:id', GruposController.putGrupo);
 router.put('/PUT/GRUPO/:id', GruposController.putGrupoItemOK);
 router.put('/:id', GruposController.putGrupoSubDoc);
 router.delete('/DELETE/GRUPO/:id', GruposController.deleteGrupoItem);

@@ -18,27 +18,6 @@ export const getGruposList = async (req, res, next) => {
       }
     };
 
-// : Solo un Producto/Servicio.
-export const getGruposItem = async (req, res, next) => {
-    try {
-      // : obtener parametro id mediante la
-      //desestructuracion de objetos
-      const { id } = req.params;
-      // : se obtiene parametro de la forma
-      //clase/objeto.
-      //const idProdServ = req.params.id;
-    const keyType = req.query.keyType || 'OK' ||'PK'||'PersonaOK'||'PeriodoOK'||'InstitutoOK'||'CarreraOK'||'AsignaturaOK'||'Grupo'||'Curso'||'GradoAca'||'TipoEstatusOK';
-    const GruposItem = await GruposServices.getGruposItem(id, keyType);
-    if (!GruposItem) {
-      throw boom.notFound('No se encontraron productos/grupos registrados.');
-    } else if (GruposItem) {
-      res.status(200).json(GruposItem);
-    }
-  }catch(error){
-    next(error);
-  }
-  };
-
   export const getGruposItemOK = async (req, res, next) => {
     try {
       // : obtener parametro id mediante la
@@ -268,24 +247,6 @@ export const putGrupoSubDoc = async (req, res, next) => {
   next(error);
   }
   };
-
-
-export const putGrupo = async (req, res, next) => {
-  try {
-  const { id } = req.params;
-      console.log(' : controller id -> ', id);
-  const paGrupoItem = req.body;
-      console.log(' : controller body -> ', paGrupoItem);
-  const updatedGrupoItem = await GruposServices.putGrupoItem(id, paGrupoItem);
-  if (!updatedGrupoItem) {
-  throw boom.badRequest('No se pudo actualizar el Grupo.');
-  } else if (updatedGrupoItem) {
-  res.status(200).json(updatedGrupoItem);
-  }
-  } catch (error) {
-  next(error);
-  }
-};
 
 export const deleteGrupoItem = async (req, res, next) => {
     try {

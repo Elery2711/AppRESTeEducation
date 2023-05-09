@@ -62,7 +62,7 @@ Content-Type: application/json
 
 {
   "IdGrupoBK": "5A-10",
-  "IdPeriodoOK": "4",
+  "IdPeriodoOK": "10",
   "IdInstitutoOK": "40",
   "IdCarreraOK": "4",
   "IdProgramaOK": "4",
@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 
 ### DELETE ITEM Grupos
-DELETE  {{api2}}/dato
+DELETE  {{api2}}/DELETE/GRUPO/5?keyType=OK
 
 
 ###Apis de la coleccioin de cat_institutos
@@ -86,7 +86,7 @@ DELETE  {{api2}}/dato
 GET {{api}}
 
 ### GET ITEM
-GET {{api}}/dato
+GET {{api2}}/OK/5
 
 
 ### GET ITEM
@@ -118,8 +118,6 @@ Content-Type: application/json
 
 {
 	"IdTipoEstatusOK": "1",
-	"IdEstatusOK": "90",
-	"Estatus": "1",
 	"Actual": "1",
 	"detail_row": {
 		"Activo": "1",
@@ -131,13 +129,11 @@ Content-Type: application/json
 }
 
 ### PUT ITEM grupos_estatus
-PUT {{api2}}/PUT/GRUPOESTATUS/5/90
+PUT {{api2}}/PUT/GRUPOESTATUS/5/1
 Content-Type: application/json
 
 {
 	"IdTipoEstatusOK": "2",
-	"IdEstatusOK": "7",
-	"Estatus": "4",
 	"Actual": "5",
 	"detail_row": {
 		"Activo": "0",
@@ -149,9 +145,10 @@ Content-Type: application/json
 }
 
 ### DELETE ITEM grupos_estatus
-DELETE  {{api2}}/DELETE/GRUPOESTATUS/5/80
+DELETE  {{api2}}/DELETE/GRUPOESTATUS/5/2
 
-
+###GET 
+GET {{api2}}/OK/5
 
 ### POST ITEM grupos_horarios
 POST {{api2}}/POST/GRUPOHORARIO/5
