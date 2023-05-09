@@ -223,7 +223,7 @@ export const putGrupoItemOK = async (req, res, next) => {
       console.log(' : controller id -> ', id);
   const paGrupoItem = req.body;
       console.log(' : controller body -> ', paGrupoItem);
-  const updatedGrupoItem = await GruposServices.putGrupoItemOk(id, paGrupoItem);
+  const updatedGrupoItem = await GruposServices.putGrupoItemOK(id, paGrupoItem);
   if (!updatedGrupoItem) {
   throw boom.badRequest('No se pudo actualizar el Grupo.');
   } else if (updatedGrupoItem) {

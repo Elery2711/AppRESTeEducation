@@ -265,7 +265,6 @@ export const deleteGrupo = async (id) => {
   }
 };
 
-
 export const deleteGrupoItem = async (id,keyType) => {
     let GruposItem;
     try {
@@ -277,10 +276,6 @@ export const deleteGrupoItem = async (id,keyType) => {
         } else if (keyType === 'BK') {
           GruposItem = await Grupos.deleteOne({
             IdGrupoBK: id,
-          });
-        }else if (keyType === 'PK') {
-          GruposItem = await Grupos.deleteOne({
-            IdGrupoPK: id,
           });
         }
         return(GruposItem);
